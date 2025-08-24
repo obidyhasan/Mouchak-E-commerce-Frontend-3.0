@@ -25,12 +25,23 @@ const ProductCard = ({ product }: any) => {
   return (
     <div>
       <div className="group rounded-sm relative block overflow-hidden">
-        <Link to={`/product/${product?.slug}`}>
+        <Link className="relative" to={`/product/${product?.slug}`}>
           <img
             src={product?.image}
             alt={product?.name}
             className="h-40 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
           />
+          {/* Off */}
+          {product?.previousPrice > 0 && (
+            <div className="text-xs sm:text-sm px-3 py-0.5 bg-primary absolute top-0 right-0 rounded-tr-sm rounded-bl-xs">
+              {Math.round(
+                (Number(product?.previousPrice - product?.price) /
+                  Number(product?.previousPrice)) *
+                  100
+              )}
+              % OFF
+            </div>
+          )}
         </Link>
 
         <div className="relative border border-gray-100 bg-background p-3 flex flex-col ">
@@ -48,9 +59,16 @@ const ProductCard = ({ product }: any) => {
               {product?.name}
             </h3>
 
-            <p className="mt-1.5 text-sm sm:text-base text-gray-700 text-center">
-              Tk. {product?.price}
-            </p>
+            <div className="flex gap-2 items-center justify-center">
+              {product?.previousPrice > 0 && (
+                <p className="mt-1.5 line-through text-xs sm:text-sm text-primary text-center">
+                  Tk. {product?.previousPrice}
+                </p>
+              )}
+              <p className="mt-1.5 text-sm sm:text-base  text-center">
+                Tk. {product?.price}
+              </p>
+            </div>
           </Link>
           <Button
             onClick={handleAddToCart}

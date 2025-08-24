@@ -57,6 +57,16 @@ const addProductSchema = z.object({
       { message: "Price must be greater than 0" }
     )
     .optional(),
+  previousPrice: z
+    .string("Price field required")
+    .refine(
+      (val) => {
+        const num = Number(val);
+        return !isNaN(num) && num > 0;
+      },
+      { message: "Previous Price must be greater than 0" }
+    )
+    .optional(),
   description: z
     .string("Description field required")
     .min(1, { message: "Description must be at least 1 characters" })
@@ -84,6 +94,7 @@ const UpdateProduct = () => {
       name: "",
       category: "",
       price: "",
+      previousPrice: "",
       description: "",
       status: "",
     },
@@ -101,6 +112,7 @@ const UpdateProduct = () => {
         name: product.name,
         category: product.category,
         price: product.price?.toString() || "",
+        previousPrice: product.previousPrice?.toString() || "",
         description: product.description,
         status: product.status,
       });
@@ -111,6 +123,7 @@ const UpdateProduct = () => {
     setButtonDisable(true);
     const toastId = toast.loading("Product updating...");
     data.price = Number(data.price);
+    data.previousPrice = Number(data.previousPrice);
 
     const formData = new FormData();
     formData.append("data", JSON.stringify(data));
@@ -237,6 +250,26 @@ const UpdateProduct = () => {
                 </FormControl>
                 <FormDescription className="sr-only">
                   This is your product price.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="previousPrice"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="pb-1">Previous Price</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="enter product previous price"
+                    type="number"
+                    {...field}
+                  />
+                </FormControl>
+                <FormDescription className="sr-only">
+                  This is your product previous price.
                 </FormDescription>
                 <FormMessage />
               </FormItem>

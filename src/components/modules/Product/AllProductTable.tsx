@@ -54,6 +54,7 @@ const AllProductTable = () => {
             <TableHead>Name</TableHead>
             <TableHead>Status</TableHead>
             <TableHead>Price</TableHead>
+            <TableHead>Previous Price</TableHead>
             <TableHead className="text-right">Action</TableHead>
           </TableRow>
         </TableHeader>
@@ -104,6 +105,7 @@ const AllProductTable = () => {
                 )}
               </TableCell>
               <TableCell>Tk. {product?.price}</TableCell>
+              <TableCell>Tk. {product?.previousPrice}</TableCell>
 
               <TableCell className="text-right flex justify-end gap-2 flex-wrap">
                 <Button variant={"outline"} size={"icon"}>

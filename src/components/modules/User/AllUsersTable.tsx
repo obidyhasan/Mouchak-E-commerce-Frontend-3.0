@@ -95,7 +95,7 @@ export function AllUsersTable() {
               <Input
                 onChange={(e) => setSearchTitle(e.target.value)}
                 className="peer ps-9  max-w-2xl"
-                placeholder="Search by order Id, status, payment Status"
+                placeholder="Search by name, email role, phone, address"
                 type="search"
               />
               <div className="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-disabled:opacity-50">
