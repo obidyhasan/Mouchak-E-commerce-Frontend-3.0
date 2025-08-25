@@ -7,6 +7,7 @@ import { lazy } from "react";
 
 const App = lazy(() => import("@/App"));
 const About = lazy(() => import("@/pages/About"));
+const Contact = lazy(() => import("@/pages/Contact"));
 const Home = lazy(() => import("@/pages/Home"));
 const Login = lazy(() => import("@/pages/Login"));
 const Profile = lazy(() => import("@/pages/user/Profile"));
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
       {
         Component: About,
         path: "/about",
+      },
+      {
+        Component: Contact,
+        path: "/contact",
       },
       {
         Component: Checkout,

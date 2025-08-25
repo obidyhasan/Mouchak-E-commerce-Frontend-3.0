@@ -19,7 +19,7 @@ const CommonLayout = ({ children }: IProps) => {
         className=" px-4 py-2 w-full bg-primary flex items-center justify-center"
       >
         <p className="text-center text-xs sm:text-sm">
-          {`  আমাদের যে কোন পণ্য অর্ডার করতে কল বা WhatsApp করুন: 018616-10745`}
+          {`  আমাদের যে কোন পণ্য অর্ডার করতে কল বা WhatsApp করুন: 01861-610745`}
         </p>
       </Link>
       <Navbar />

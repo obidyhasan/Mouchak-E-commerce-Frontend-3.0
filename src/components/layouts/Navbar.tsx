@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HouseIcon } from "lucide-react";
+import { HouseIcon, InboxIcon, ZapIcon } from "lucide-react";
 
 import Logo from "@/assets/icons/Logo";
 import UserMenu from "@/components/ui/user-menu";
@@ -15,20 +15,22 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { CartSidebar } from "../modules/Cart/CartSidebar";
 import useUser from "@/hooks/userUser";
 import { LuUserRound } from "react-icons/lu";
 
 // Navigation links array
 const navigationLinks = [
-  { href: "/", label: "Home", icon: HouseIcon, active: true },
-  // { href: "/about", label: "About", icon: InboxIcon },
+  { href: "/", label: "Home", icon: HouseIcon },
+  { href: "/about", label: "About", icon: InboxIcon },
+  { href: "/contact", label: "Contact", icon: ZapIcon },
 ];
 
 export default function Navbar() {
   const userInfo = useUser();
   const navigate = useNavigate();
+  const location = useLocation(); // <-- Get current route
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
   const goToLoginPage = () => {
@@ -80,12 +82,13 @@ export default function Navbar() {
                 <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
                   {navigationLinks.map((link, index) => {
                     const Icon = link.icon;
+                    const isActive = location.pathname === link.href; // <-- dynamic active
                     return (
                       <NavigationMenuItem key={index} className="w-full">
                         <NavigationMenuLink
                           asChild
                           className="flex-row items-center gap-2 py-1.5"
-                          active={link.active}
+                          active={isActive}
                         >
                           <Link
                             to={link.href}
@@ -113,12 +116,13 @@ export default function Navbar() {
             <NavigationMenuList className="gap-2">
               {navigationLinks.map((link, index) => {
                 const Icon = link.icon;
+                const isActive = location.pathname === link.href; // <-- dynamic active
                 return (
                   <NavigationMenuItem key={index} className="w-full">
                     <NavigationMenuLink
                       asChild
                       className="flex-row items-center gap-2 py-1.5"
-                      active={link.active}
+                      active={isActive}
                     >
                       <Link to={link.href} className="flex items-center gap-2">
                         <Icon
