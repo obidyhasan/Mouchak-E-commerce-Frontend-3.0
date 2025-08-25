@@ -10,7 +10,6 @@ function App() {
     <>
       <CommonLayout>
         <ScrollToTop />
-        useGtmVirtualPageview();
         <Outlet />
       </CommonLayout>
       <LoadingLayout />
