@@ -52,13 +52,7 @@ const addProductSchema = z.object({
     },
     { message: "Price must be greater than 0" }
   ),
-  previousPrice: z.string("Previous Price field required").refine(
-    (val) => {
-      const num = Number(val);
-      return !isNaN(num) && num > 0;
-    },
-    { message: "Price must be greater than 0" }
-  ),
+  previousPrice: z.string("Previous Price field required").optional(),
   description: z
     .string("Description field required")
     .min(1, { message: "Description must be at least 1 characters" }),

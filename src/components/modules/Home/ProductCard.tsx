@@ -34,7 +34,7 @@ const ProductCard = ({ product }: any) => {
 
   return (
     <div>
-      <div className="group rounded-sm relative block overflow-hidden">
+      <div className="group rounded-sm relative block overflow-hidden border border-muted">
         <Link className="relative" to={`/product/${product?.slug}`}>
           <img
             src={product?.image}
@@ -54,7 +54,7 @@ const ProductCard = ({ product }: any) => {
           )}
         </Link>
 
-        <div className="relative border border-gray-100 bg-background p-3 flex flex-col ">
+        <div className="relative bg-background p-3 flex flex-col ">
           <Link to={`/product/${product?.slug}`} className="flex-1">
             <div className="text-center">
               <Badge
