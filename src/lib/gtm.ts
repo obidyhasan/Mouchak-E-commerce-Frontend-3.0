@@ -4,24 +4,24 @@ import { useLocation } from "react-router-dom";
 
 declare global {
   interface Window {
-    dataLayer: Record<string, any>[];
+    dataLayer: any[];
   }
 }
 
-const GTMListener = () => {
+export function track(event: string, params: Record<string, any> = {}) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event, ...params });
+}
+
+export function useGtmVirtualPageview() {
   const location = useLocation();
 
   useEffect(() => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      event: "pageview",
-      page_title: document.title,
-      page_location: window.location.href,
+      event: "virtual_page_view",
       page_path: location.pathname + location.search,
+      page_title: document.title || undefined,
     });
-  }, [location]);
-
-  return null;
-};
-
-export default GTMListener;
+  }, [location.pathname, location.search]);
+}

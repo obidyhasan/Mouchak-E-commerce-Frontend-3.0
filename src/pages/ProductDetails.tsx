@@ -2,6 +2,7 @@
 import ProductCard from "@/components/modules/Home/ProductCard";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { track } from "@/lib/gtm";
 import { setBuyNow } from "@/redux/features/buyNow/buyNowSlice";
 import { addCart } from "@/redux/features/cart/CartSlice";
 import { setLoading } from "@/redux/features/loadingSlice";
@@ -35,6 +36,17 @@ const ProductDetails = () => {
     dispatch(setLoading(allProductLoading));
   }, [allProductLoading, dispatch]);
 
+  useEffect(() => {
+    track("view_item", {
+      content_name: product?.name,
+      content_ids: [product?._id],
+      content_type: "product",
+      contents: [{ id: product?._id, item_price: product?.price }],
+      value: product?.price, // numeric
+      currency: "BDT",
+    });
+  }, [product]);
+
   const products = allProducts?.filter(
     (product: any) => product.slug !== slug && product?.status === "ACTIVE"
   );
@@ -49,6 +61,17 @@ const ProductDetails = () => {
         image: product?.image,
       })
     );
+
+    track("add_to_cart", {
+      content_ids: [product?._id],
+      content_type: "product",
+      contents: [
+        { id: product?._id, quantity: quantity, item_price: product?.price },
+      ],
+      value: product?.price,
+      currency: "BDT",
+    });
+
     toast.success("Product added to cart");
   };
 
@@ -62,6 +85,17 @@ const ProductDetails = () => {
         image: product?.image,
       })
     );
+
+    track("begin_checkout", {
+      content_ids: [product?._id],
+      contents: [
+        { id: product?._id, quantity: quantity, item_price: product?.price },
+      ],
+      value: product?.price,
+      currency: "BDT",
+      num_items: 1,
+    });
+
     navigate("/checkout", { state: "BuyNow" });
   };
 

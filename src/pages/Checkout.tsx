@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { divisions } from "@/constants/divisions";
+import { track } from "@/lib/gtm";
 import {
   useLoginMutation,
   useUpdateUserMutation,
@@ -191,6 +192,19 @@ const Checkout = () => {
       return acc + item.price * item.quantity;
     }, 0);
   }
+
+  useEffect(() => {
+    track("begin_checkout", {
+      content_ids: carts.map((i) => i.id),
+      contents: carts.map((i) => ({
+        id: i.id,
+        quantity: i.quantity,
+        item_price: i.price,
+      })),
+      value: totalPrice,
+      currency: "BDT",
+    });
+  }, [carts, totalPrice]);
 
   const handleConfirmOrder = async (toastId: any) => {
     try {

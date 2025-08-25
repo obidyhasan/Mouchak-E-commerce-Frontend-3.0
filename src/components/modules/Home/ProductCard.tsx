@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useAppDispatch } from "@/redux/hook";
 import { addCart } from "@/redux/features/cart/CartSlice";
+import { track } from "@/lib/gtm";
 
 const ProductCard = ({ product }: any) => {
   const dispatch = useAppDispatch();
@@ -19,6 +20,15 @@ const ProductCard = ({ product }: any) => {
         image: product?.image,
       })
     );
+
+    track("add_to_cart", {
+      content_ids: [product?._id],
+      content_type: "product",
+      contents: [{ id: product?._id, item_price: product?.price }],
+      value: product?.price,
+      currency: "BDT",
+    });
+
     toast.success("Product added to cart");
   };
 
