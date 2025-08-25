@@ -18,6 +18,7 @@ const MyOrderCarts = lazy(() => import("@/pages/user/MyOrderCarts"));
 const OrderDetails = lazy(() => import("@/pages/admin/OrderDetails"));
 const UpdateProduct = lazy(() => import("@/pages/admin/UpdateProduct"));
 const Unauthorized = lazy(() => import("@/pages/Unauthorized"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
 const DashboardLayout = lazy(
   () => import("@/components/layouts/DashboardLayout")
 );
@@ -89,5 +90,9 @@ export const router = createBrowserRouter([
   {
     Component: Unauthorized,
     path: "/unauthorized",
+  },
+  {
+    path: "*",
+    Component: NotFound,
   },
 ]);
