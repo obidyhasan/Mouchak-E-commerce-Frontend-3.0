@@ -36,11 +36,11 @@ const MouwalGallerySlider = () => {
 
   const slideWidth = 320 + 8; // width + gap
 
-  // --- Auto Scroll ---
+  // --- Auto Scroll (Right to Left) ---
   const startAutoScroll = () => {
     if (intervalRef.current) return;
     intervalRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev === base.length ? 0 : prev + 1));
+      setCurrentIndex((prev) => (prev === 0 ? base.length : prev - 1));
     }, 2000); // 2s
   };
 
@@ -60,13 +60,13 @@ const MouwalGallerySlider = () => {
 
   const handlePrev = () => {
     stopAutoScroll();
-    setCurrentIndex((prev) => (prev === 0 ? base.length : prev - 1));
+    setCurrentIndex((prev) => (prev === base.length ? 0 : prev + 1));
     startAutoScroll();
   };
 
   const handleNext = () => {
     stopAutoScroll();
-    setCurrentIndex((prev) => (prev === base.length ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev === 0 ? base.length : prev - 1));
     startAutoScroll();
   };
 
@@ -75,9 +75,9 @@ const MouwalGallerySlider = () => {
       <div className="relative my-10 overflow-hidden w-full">
         {/* Slider Track */}
         <div
-          className="flex transition-transform duration-700 ease-linear gap-2 "
+          className="flex transition-transform duration-700 ease-linear gap-2"
           style={{
-            transform: `translateX(-${currentIndex * slideWidth}px)`,
+            transform: `translateX(${currentIndex * slideWidth}px)`,
           }}
         >
           {marqueeItems.map((gallery: GalleryItem, idx: number) => (
@@ -114,7 +114,7 @@ const MouwalGallerySlider = () => {
           <Button
             size={"icon"}
             onClick={handleNext}
-            className=" hover:scale-110 transition"
+            className="hover:scale-110 transition"
           >
             <ChevronRight className="h-6 w-6" />
           </Button>
