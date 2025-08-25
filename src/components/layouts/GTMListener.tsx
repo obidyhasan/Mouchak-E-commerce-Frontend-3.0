@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -11,17 +12,16 @@ const GTMListener = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (!window.dataLayer) {
-      window.dataLayer = [];
-    }
-
+    window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "pageview",
-      page: location.pathname + location.search,
+      page_title: document.title,
+      page_location: window.location.href,
+      page_path: location.pathname + location.search,
     });
   }, [location]);
 
-  return null; // nothing to render
+  return null;
 };
 
 export default GTMListener;
