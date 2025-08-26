@@ -121,7 +121,6 @@ const EditProductDialog = ({ children, slug }: IProps) => {
     setButtonDisable(true);
     const toastId = toast.loading("Product updating...");
     data.price = Number(data.price);
-    console.log(data);
 
     const formData = new FormData();
     formData.append("data", JSON.stringify(data));

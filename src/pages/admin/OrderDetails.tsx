@@ -24,8 +24,9 @@ import OrderCartItem from "@/components/modules/Order/OrderCartItem";
 
 const OrderDetails = () => {
   const { id } = useParams();
-  const { data: orders, isLoading } = useGetAllOrdersQuery(undefined) || [];
+  const { data, isLoading } = useGetAllOrdersQuery(undefined) || [];
   const dispatch = useDispatch();
+  const orders = data?.data;
 
   useEffect(() => {
     dispatch(setLoading(isLoading));

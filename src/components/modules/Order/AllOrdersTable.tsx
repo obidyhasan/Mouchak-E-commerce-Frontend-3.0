@@ -114,8 +114,6 @@ export const AllOrdersTable = () => {
     }
   };
 
-  console.log(data);
-
   const totalPage = data?.meta?.totalPage || 1;
 
   return (
@@ -178,7 +176,7 @@ export const AllOrdersTable = () => {
               {/* Order Status */}
               <TableCell>
                 <Select
-                  defaultValue={order?.status}
+                  value={order?.status}
                   onValueChange={(value) => {
                     setSelectedValue(value);
                     setSelectedId(order?._id || null);
@@ -206,7 +204,7 @@ export const AllOrdersTable = () => {
               {/* Payment Status */}
               <TableCell>
                 <Select
-                  defaultValue={order?.paymentStatus}
+                  value={order?.paymentStatus}
                   onValueChange={(value) => {
                     setSelectedValue(value);
                     setSelectedId(order?._id || null);

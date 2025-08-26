@@ -64,14 +64,11 @@ export function AllUsersTable() {
 
   const handleStatusUpdate = async (value: string, id: string) => {
     const toastId = toast.loading("Updating role...");
-
-    console.log({ value, id });
     try {
       const res = await updateUser({
         userInfo: { role: value },
         id,
       }).unwrap();
-      console.log(res);
       if (res.success) {
         toast.success("Role updated successfully", { id: toastId });
       }
@@ -126,7 +123,7 @@ export function AllUsersTable() {
 
               <TableCell>
                 <Select
-                  defaultValue={user?.role}
+                  value={user?.role}
                   onValueChange={(value) => {
                     setSelectedValue(value);
                     setSelectedId(user?._id || null);

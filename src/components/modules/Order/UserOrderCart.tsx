@@ -10,8 +10,6 @@ const UserOrderCart = ({ order }: any) => {
     return acc + item.amount * item.quantity;
   }, 0);
 
-  console.log(order?.carts);
-
   return (
     <div className="border p-4 rounded-md">
       <div className="border-b flex flex-col gap-2 pb-3 mb-3">

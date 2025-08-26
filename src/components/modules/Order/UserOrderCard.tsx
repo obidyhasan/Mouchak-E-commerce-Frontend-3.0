@@ -21,8 +21,6 @@ interface IProps {
 }
 
 const UserOrderCard = ({ order }: IProps) => {
-  console.log(order);
-
   return (
     <div className="border p-4 rounded-md">
       <div className="border-b flex flex-col gap-2 pb-3 mb-3">

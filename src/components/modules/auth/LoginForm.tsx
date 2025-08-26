@@ -44,7 +44,6 @@ export function LoginForm({
     setButtonDisable(true);
     try {
       const res = await login(data).unwrap();
-      console.log(res);
       if (res.success) {
         setButtonDisable(false);
         toast.success(res.message, { id: toastId });

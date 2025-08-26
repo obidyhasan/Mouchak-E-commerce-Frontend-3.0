@@ -41,7 +41,7 @@ export function OrderConfirmDialog({ open }: IProps) {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogAction className="mx-auto" onClick={handleBackToHome}>
-            Go To Home
+            See Your Order Process
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
