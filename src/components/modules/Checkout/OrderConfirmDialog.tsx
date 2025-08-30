@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/alert-dialog";
 
 import successImg from "@/assets/images/success_img.png";
-
 import { useNavigate } from "react-router";
 
 interface IProps {

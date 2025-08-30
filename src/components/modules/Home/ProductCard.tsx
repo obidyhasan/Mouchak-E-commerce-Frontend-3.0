@@ -33,19 +33,19 @@ const ProductCard = ({ product }: any) => {
   };
 
   return (
-    <div>
-      <div className="group rounded-sm relative block overflow-hidden border border-muted">
+    <div className="h-full flex flex-col">
+      <div className="group rounded-sm relative overflow-hidden border border-muted flex flex-col h-full">
         <Link className="relative" to={`/product/${product?.slug}`}>
           <img
             src={product?.image}
             alt={product?.name}
             className="h-40 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
           />
-          {/* Off */}
+          {/* Discount Badge */}
           {product?.previousPrice > 0 && (
             <div className="text-xs sm:text-sm px-3 py-0.5 bg-primary absolute top-0 right-0 rounded-tr-sm rounded-bl-xs">
               {Math.round(
-                (Number(product?.previousPrice - product?.price) /
+                ((Number(product?.previousPrice) - Number(product?.price)) /
                   Number(product?.previousPrice)) *
                   100
               )}
@@ -54,8 +54,12 @@ const ProductCard = ({ product }: any) => {
           )}
         </Link>
 
-        <div className="relative bg-background p-3 flex flex-col ">
-          <Link to={`/product/${product?.slug}`} className="flex-1">
+        {/* Card Body */}
+        <div className="relative bg-background p-3 flex flex-col flex-1">
+          <Link
+            to={`/product/${product?.slug}`}
+            className="flex-1 flex flex-col"
+          >
             <div className="text-center">
               <Badge
                 variant="outline"
@@ -69,23 +73,27 @@ const ProductCard = ({ product }: any) => {
               {product?.name}
             </h3>
 
-            <div className="flex gap-2 items-center justify-center">
+            <div className="flex gap-2 items-center justify-center mt-auto">
               {product?.previousPrice > 0 && (
-                <p className="mt-1.5 line-through text-xs sm:text-sm text-primary text-center">
+                <p className="line-through text-xs sm:text-sm text-primary text-center">
                   Tk. {product?.previousPrice}
                 </p>
               )}
-              <p className="mt-1.5 text-sm sm:text-base  text-center">
+              <p className="text-sm sm:text-base text-center">
                 Tk. {product?.price}
               </p>
             </div>
           </Link>
-          <Button
-            onClick={handleAddToCart}
-            className="mt-4 block text-center w-full rounded-sm bg-primary p-2 text-xs sm:text-sm font-medium transition hover:scale-103"
-          >
-            Add to Cart
-          </Button>
+
+          {/* Add to Cart Button always bottom */}
+          <div className="mt-4">
+            <Button
+              onClick={handleAddToCart}
+              className="block text-center w-full rounded-sm bg-primary p-2 text-xs sm:text-sm font-medium transition hover:scale-103"
+            >
+              Add to Cart
+            </Button>
+          </div>
         </div>
       </div>
     </div>

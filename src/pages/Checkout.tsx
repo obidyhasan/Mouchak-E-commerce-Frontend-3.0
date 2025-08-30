@@ -87,6 +87,18 @@ const Checkout = () => {
   const dispatch = useAppDispatch();
   const location = useLocation();
   const isBuyNow = location?.state === "BuyNow";
+  const [isOrderComplete, setIsOrderComplete] = useState(false);
+
+  useEffect(() => {
+    if (
+      !isOrderComplete &&
+      location.pathname.startsWith("/checkout") &&
+      carts.length === 0 &&
+      !isBuyNow
+    ) {
+      navigate("/", { replace: true });
+    }
+  }, [carts, isBuyNow, isOrderComplete, location, navigate]);
 
   const form = useForm<z.infer<typeof userSchema>>({
     resolver: zodResolver(userSchema),
@@ -98,12 +110,6 @@ const Checkout = () => {
       address: "",
     },
   });
-
-  useEffect(() => {
-    if (carts.length === 0 && !isBuyNow) {
-      navigate("/", { replace: true });
-    }
-  }, [carts, navigate, isBuyNow]);
 
   useEffect(() => {
     if (userInfo) {
@@ -231,13 +237,14 @@ const Checkout = () => {
         shippingCost: shippingCost,
       }).unwrap();
       if (orderResult.success) {
+        toast.success("You Order is Confirmed", { id: toastId });
+        setOrderConfirmOpen(true);
+        setIsOrderComplete(true);
         if (isBuyNow) {
           dispatch(clearBuyNow());
         } else {
           dispatch(clearCart());
         }
-        toast.success("You Order is Confirmed", { id: toastId });
-        setOrderConfirmOpen(true);
       }
     } catch (err: unknown) {
       console.error(err);
