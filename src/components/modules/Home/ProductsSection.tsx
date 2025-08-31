@@ -31,10 +31,6 @@ const ProductsSection = () => {
           ))}
         </>
       )}
-
-      {products?.map((product: any, idx: number) => (
-        <ProductCard key={idx} product={product} />
-      ))}
     </section>
   );
 };
