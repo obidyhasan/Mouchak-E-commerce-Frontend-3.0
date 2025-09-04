@@ -1,17 +1,16 @@
-import Logo from "@/assets/icons/Logo";
 import facebook from "@/assets/icons/socialIcons/facebook.png";
 import instagram from "@/assets/icons/socialIcons/instagram.png";
 import whatsapp from "@/assets/icons/socialIcons/whatsapp.png";
 import youtube from "@/assets/icons/socialIcons/youtube.png";
 import { Link } from "react-router";
+import logo from "@/assets/icons/logo-icon.svg";
 
 const Footer = () => {
   return (
     <footer className="bg-background border-t border-border">
       <div className="mx-auto max-w-7xl px-4 py-10">
         <div className="flex justify-center items-center gap-2">
-          <Logo />
-          <h1 className="text-2xl font-bold text-foreground">Mouchak</h1>
+          <img src={logo} className="w-24" alt="logo" />
         </div>
 
         <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground">
@@ -57,7 +56,7 @@ const Footer = () => {
         </ul>
         <div>
           <p className="text-center mt-6 -mb-5 text-muted-foreground text-sm">
-            © 2025 Mouchak. All Right Reserved
+            © 2025 Moucak. All Right Reserved
           </p>
         </div>
       </div>

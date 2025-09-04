@@ -1,4 +1,4 @@
-import Logo from "@/assets/icons/Logo";
+import logo from "@/assets/icons/logo-icon.svg";
 import { Button } from "@/components/ui/button";
 
 interface About3Props {
@@ -73,7 +73,7 @@ const About = ({
             />
             <div className="flex flex-col gap-7 md:flex-row lg:flex-col">
               <div className="flex flex-col justify-between gap-6 rounded-xl bg-muted p-7 md:w-1/2 lg:w-auto">
-                <Logo />
+                <img src={logo} className="w-24" alt="logo" />
                 <div>
                   <p className="mb-2 text-lg font-semibold">{breakout.title}</p>
                   <p className="text-muted-foreground">

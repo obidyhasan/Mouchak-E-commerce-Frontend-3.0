@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { HouseIcon, InboxIcon, ZapIcon } from "lucide-react";
 
-import Logo from "@/assets/icons/Logo";
+import logo from "@/assets/icons/logo-icon.svg";
 import UserMenu from "@/components/ui/user-menu";
 import { Button } from "@/components/ui/button";
 import {
@@ -143,7 +143,7 @@ export default function Navbar() {
         {/* Middle side: Logo */}
         <div className="flex items-center">
           <Link to="/" className="text-primary hover:text-primary/90">
-            <Logo />
+            <img src={logo} className="w-24" alt="logo" />
           </Link>
         </div>
 

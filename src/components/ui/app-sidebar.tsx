@@ -13,7 +13,7 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import { Link } from "react-router";
-import Logo from "@/assets/icons/Logo";
+import logo from "@/assets/icons/logo-icon.svg";
 import { getSidebarItems } from "@/utils/getSidebarItems";
 
 const data = {
@@ -25,7 +25,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar {...props}>
       <SidebarHeader>
         <Link to={"/"} className="mx-auto p-1">
-          <Logo />
+          <img src={logo} className="w-24" alt="logo" />
         </Link>
       </SidebarHeader>
       <SidebarContent>
