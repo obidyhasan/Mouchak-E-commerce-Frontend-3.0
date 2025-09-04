@@ -39,7 +39,7 @@ export default function Navbar() {
 
   return (
     <header className="border-b z-50 bg-background sticky top-0">
-      <div className="max-w-7xl mx-auto w-full px-4 flex h-16 items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto w-full px-4 flex h-[70px] items-center justify-between gap-4">
         {/* Left side */}
         <div className="flex flex-1 items-center gap-2">
           {/* Mobile menu trigger */}
@@ -143,7 +143,7 @@ export default function Navbar() {
         {/* Middle side: Logo */}
         <div className="flex items-center">
           <Link to="/" className="text-primary hover:text-primary/90">
-            <img src={logo} className="w-24" alt="logo" />
+            <img src={logo} className="w-36" alt="logo" />
           </Link>
         </div>
 
