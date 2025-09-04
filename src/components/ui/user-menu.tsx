@@ -69,23 +69,23 @@ export default function UserMenu() {
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            {userInfo?.role === Role.ADMIN ||
-              (userInfo?.role === Role.SUPER_ADMIN && (
-                <DropdownMenuGroup>
-                  <DropdownMenuItem asChild>
-                    <Link className="w-full" to="/admin">
-                      <div className="flex gap-2 w-full">
-                        <LayoutDashboard
-                          size={16}
-                          className="opacity-60"
-                          aria-hidden="true"
-                        />
-                        <span>Dashboard</span>
-                      </div>
-                    </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-              ))}
+            {(userInfo?.role === Role.ADMIN ||
+              userInfo?.role === Role.SUPER_ADMIN) && (
+              <DropdownMenuGroup>
+                <DropdownMenuItem asChild>
+                  <Link className="w-full" to="/admin">
+                    <div className="flex gap-2 w-full">
+                      <LayoutDashboard
+                        size={16}
+                        className="opacity-60"
+                        aria-hidden="true"
+                      />
+                      <span>Dashboard</span>
+                    </div>
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+            )}
             <DropdownMenuGroup>
               <DropdownMenuItem asChild>
                 <Link className="w-full" to="/me">
