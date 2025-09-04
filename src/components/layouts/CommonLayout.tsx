@@ -8,7 +8,7 @@ interface IProps {
 }
 
 const CommonLayout = ({ children }: IProps) => {
-  const number = "8801861610745";
+  const number = "8801339998774";
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -19,7 +19,7 @@ const CommonLayout = ({ children }: IProps) => {
         className=" px-4 py-2 w-full bg-primary flex items-center justify-center"
       >
         <p className="text-center text-xs sm:text-sm">
-          {`  আমাদের যে কোন পণ্য অর্ডার করতে কল বা WhatsApp করুন: 01861-610745`}
+          {`  আমাদের যে কোন পণ্য অর্ডার করতে কল বা WhatsApp করুন: 01339-998774`}
         </p>
       </Link>
       <Navbar />

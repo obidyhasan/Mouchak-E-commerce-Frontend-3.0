@@ -6,6 +6,7 @@ import { Link } from "react-router";
 import logo from "@/assets/icons/logo-icon.svg";
 
 const Footer = () => {
+  const number = "8801339998774";
   return (
     <footer className="bg-background border-t border-border">
       <div className="mx-auto max-w-7xl px-4 py-10">
@@ -24,7 +25,7 @@ const Footer = () => {
           <li>
             <Link
               className="w-10 h-10 text-foreground/80 transition hover:text-foreground"
-              to={"/"}
+              to={"https://www.facebook.com/share/17Vwkm8Xvf/"}
             >
               <img src={facebook} alt="facebook" className="w-6 h-6" />
             </Link>
@@ -48,7 +49,8 @@ const Footer = () => {
           <li>
             <Link
               className="w-10 h-10 text-foreground/80 transition hover:text-foreground"
-              to={"/"}
+              to={`https://wa.me/${number}?text=Hello%20I%20am%20interested
+`}
             >
               <img src={whatsapp} alt="whatsapp" className="w-6 h-6" />
             </Link>

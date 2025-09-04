@@ -23,16 +23,7 @@ const Home = () => {
         />
         <ProductsSection />
       </section>
-      {/* FAQ Section */}
-      <section>
-        <div className="max-w-7xl mx-auto px-4 w-full">
-          <SectionHeader
-            title="Frequently Asked Questions"
-            subTitle="Find quick answers to the most common questions about our honey, sourcing, and delivery."
-          />
-        </div>
-        <FAQAccordion />
-      </section>
+
       {/* Gallery Section */}
       <section>
         <div className="max-w-7xl mx-auto px-4 w-full">
@@ -44,6 +35,16 @@ const Home = () => {
         </div>
 
         <GallerySlider />
+      </section>
+      {/* FAQ Section */}
+      <section>
+        <div className="max-w-7xl mx-auto px-4 w-full">
+          <SectionHeader
+            title="Frequently Asked Questions"
+            subTitle="Find quick answers to the most common questions about our honey, sourcing, and delivery."
+          />
+        </div>
+        <FAQAccordion />
       </section>
       {/* Mouwal Section */}
       <section>
