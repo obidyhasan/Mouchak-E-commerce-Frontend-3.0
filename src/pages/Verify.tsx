@@ -91,7 +91,7 @@ const Verify = () => {
       <Card>
         <CardHeader className="space-y-1">
           <Link replace to={"/"}>
-            <img src={logo} className="mx-auto mb-3" />
+            <img src={logo} className="mx-auto mb-2 w-20" />
           </Link>
           <CardTitle className="text-xl text-center">Verify Email </CardTitle>
           <CardDescription className="text-center text-sm">

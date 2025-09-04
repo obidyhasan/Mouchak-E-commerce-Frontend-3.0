@@ -143,7 +143,7 @@ export default function Navbar() {
         {/* Middle side: Logo */}
         <div className="flex items-center">
           <Link to="/" className="text-primary hover:text-primary/90">
-            <img src={logo} className="w-36" alt="logo" />
+            <img src={logo} className="w-32 sm:w-36 md:w-40" alt="logo" />
           </Link>
         </div>
 
