@@ -37,11 +37,11 @@ const About = ({
   title = "About Us",
   description = "Pure, natural honey delivered from the hive to your home. Taste the sweetness of nature with our premium, sustainably sourced honey products.",
   mainImage = {
-    src: "https://m.media-amazon.com/images/S/aplus-media-library-service-media/d3293b75-8f3a-427d-836f-7b529598a16d.__CR0,0,970,600_PT0_SX970_V1___.jpg",
+    src: "https://res.cloudinary.com/dpxcavixq/image/upload/v1756967756/Artboard_2_np7b1t.jpg",
     alt: "placeholder",
   },
   secondaryImage = {
-    src: "https://media.istockphoto.com/id/1999831975/photo/beekeeper-working-collect-honey.jpg?s=612x612&w=0&k=20&c=6dhEz_yglkfyxmh5Kij2KSF7UXiCk1vyQa_JDfeArHE=",
+    src: "https://res.cloudinary.com/dpxcavixq/image/upload/v1756967756/Artboard_2_np7b1t.jpg",
     alt: "placeholder",
   },
   breakout = {

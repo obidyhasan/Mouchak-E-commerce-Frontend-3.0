@@ -18,8 +18,8 @@ const Home = () => {
       {/* Product Section */}
       <section className="my-12 max-w-7xl mx-auto px-4 w-full">
         <SectionHeader
-          title="Our Sweet Collection"
-          subTitle="Explore our range of pure, golden honey—fresh from the hive and packed with natural goodness."
+          title="Our Products"
+          subTitle="Explore our range of pure honey fresh from the hive and packed with natural goodness."
         />
         <ProductsSection />
       </section>

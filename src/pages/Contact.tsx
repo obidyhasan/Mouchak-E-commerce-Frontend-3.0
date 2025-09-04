@@ -26,15 +26,15 @@ const Contact = ({
   email = "hellomoucak@gmail.com",
   officeLabel = "Office",
   officeDescription = "Drop by our office for a chat.",
-  officeAddress = "1 Eagle St, Brisbane, QLD, 4000",
+  officeAddress = "Moylapota Mor, Khulna",
   phoneLabel = "Phone",
-  phoneDescription = "We're available Mon-Fri, 9am-5pm.",
+  phoneDescription = "We're always available",
   phone = "01861-610745",
   chatLabel = "Live Chat",
   chatDescription = "Get instant help from our support team.",
   chatLink = "Start Chat",
 }: Contact7Props) => {
-  const number = "8801861610745";
+  const number = "8801339998774";
 
   return (
     <div className="max-w-7xl mx-auto px-4">
