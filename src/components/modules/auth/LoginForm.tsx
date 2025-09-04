@@ -64,7 +64,7 @@ export function LoginForm({
         <CardContent className="p-0">
           <div className="p-6 md:p-8">
             <Link replace to={"/"}>
-              <img src={logo} className="mx-auto mb-3" />
+              <img src={logo} className="mx-auto mb-2 w-20" />
             </Link>
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
