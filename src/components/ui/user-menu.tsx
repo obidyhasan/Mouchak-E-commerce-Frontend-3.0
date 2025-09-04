@@ -28,14 +28,14 @@ import {
 import { Link } from "react-router";
 import useUser from "@/hooks/userUser";
 import { Role } from "@/constants/role";
-import { authApi, useLogoutMutation } from "@/redux/features/auth/auth.api";
+import { authApi } from "@/redux/features/auth/auth.api";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { Button } from "./button";
 
 export default function UserMenu() {
   const userInfo = useUser();
-  const [logout] = useLogoutMutation();
+  // const [logout] = useLogoutMutation();
   const dispatch = useDispatch();
 
   const [openDialog, setOpenDialog] = useState(false);
@@ -43,7 +43,8 @@ export default function UserMenu() {
   const firstChar = userInfo?.email[0] as string;
 
   const handleLogout = async () => {
-    await logout(undefined);
+    localStorage.removeItem("access-token");
+    // await logout(undefined);
     dispatch(authApi.util.resetApiState());
   };
 

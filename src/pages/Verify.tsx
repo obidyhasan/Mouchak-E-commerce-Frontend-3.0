@@ -70,6 +70,9 @@ const Verify = () => {
     try {
       const res = await verifyOtp(userInfo).unwrap();
       if (res.success) {
+        if (res?.data?.accessToken) {
+          localStorage.setItem("access-token", res?.data?.accessToken);
+        }
         setButtonDisable(false);
         toast.success("OTP verified", { id: toastId });
         navigate("/", { replace: true });
