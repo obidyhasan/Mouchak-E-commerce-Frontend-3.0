@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import AddMouwalImageDialog from "@/components/modules/gallery/addMouwalImageDialog";
-import ImageCard from "@/components/modules/gallery/ImageCard";
+import MouwalImageCard from "@/components/modules/gallery/MouwalImageCard";
 import { Button } from "@/components/ui/button";
 import { setLoading } from "@/redux/features/loadingSlice";
 import { useGetMouwalImagesQuery } from "@/redux/features/mouwalGallery/mouwalGallery.api";
@@ -25,7 +25,7 @@ const MouwalGallery = () => {
       <div className="my-10">
         <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {data?.map((gallery: any) => (
-            <ImageCard gallery={gallery} key={gallery?._id} />
+            <MouwalImageCard gallery={gallery} key={gallery?._id} />
           ))}
         </div>
       </div>

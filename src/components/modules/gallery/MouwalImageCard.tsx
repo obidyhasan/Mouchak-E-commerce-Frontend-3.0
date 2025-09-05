@@ -1,16 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import DeleteAlertDialog from "@/components/DeleteAlertDialog";
 import { Button } from "@/components/ui/button";
-import {
-  galleryApi,
-  useDeleteImageMutation,
-} from "@/redux/features/gallery/gallery.api";
+import { galleryApi } from "@/redux/features/gallery/gallery.api";
+import { useDeleteMouwalImageMutation } from "@/redux/features/mouwalGallery/mouwalGallery.api";
 import { Trash2 } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { toast } from "sonner";
 
-const ImageCard = ({ gallery }: any) => {
-  const [deleteImage] = useDeleteImageMutation();
+const MouwalImageCard = ({ gallery }: any) => {
+  const [deleteImage] = useDeleteMouwalImageMutation();
   const dispatch = useDispatch();
 
   const handleImageDelete = async (id: string) => {
@@ -47,4 +45,4 @@ const ImageCard = ({ gallery }: any) => {
   );
 };
 
-export default ImageCard;
+export default MouwalImageCard;
