@@ -39,7 +39,7 @@ const ProductCard = ({ product }: any) => {
           <img
             src={product?.image}
             alt={product?.name}
-            className="h-40 w-full object-contain transition duration-500 group-hover:scale-105 sm:h-72"
+            className="h-40 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
           />
           {/* Discount Badge */}
           {product?.previousPrice > 0 && (
